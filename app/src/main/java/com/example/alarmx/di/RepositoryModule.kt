@@ -1,5 +1,5 @@
 package com.example.alarmx.di
-
+ 
 import com.example.alarmx.data.prefs.PreferencesRepositoryImpl
 import com.example.alarmx.data.repository.DefaultAlarmRepository
 import com.example.alarmx.domain.challenge.ArithmeticTaskGenerator
