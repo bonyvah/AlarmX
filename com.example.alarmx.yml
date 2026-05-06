@@ -1,0 +1,33 @@
+Categories:
+  - System
+  - Time
+License: Unknown
+SourceCode: https://github.com/bonyvah/AlarmX
+IssueTracker: https://github.com/bonyvah/AlarmX/issues
+Changelog: https://github.com/bonyvah/AlarmX/releases
+
+Summary: Alarm app with cognitive challenges
+Description: |-
+  AlarmX is a mobile alarm application that requires users to complete cognitive 
+  challenges (e.g., arithmetic problems) to dismiss alarms.
+  
+  The app allows users to create and manage alarms, customize difficulty levels, 
+  and configure preferences such as snooze behavior and sound settings.
+
+AutoName: AlarmX
+
+RepoType: git
+Repo: https://github.com/bonyvah/AlarmX
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: b554920a5a7e612be2a229361c8335ce59afd28a
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1

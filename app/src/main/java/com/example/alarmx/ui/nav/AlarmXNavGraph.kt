@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.alarmx.AlarmTrigger
 import com.example.alarmx.ui.alarm.AlarmEvent
 import com.example.alarmx.ui.alarm.AlarmViewModel
 import com.example.alarmx.ui.alarm.dismiss.DismissScreen
