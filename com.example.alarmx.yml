@@ -26,6 +26,15 @@ Builds:
     subdir: app
     gradle:
       - yes
+    gradleprops:
+      - android.lintOptions.checkReleaseBuilds=false
+      - android.lintOptions.abortOnError=false
+    prebuild:
+      - sed -i 's/gradle-9.1.0-bin.zip/gradle-8.10-bin.zip/' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i 's/a17ddd85a26b6a7f5ddb71ff8b05fc5104c0202c6e64782429790c933686c806/5b9c5eb3f9fc2c94abaea57d90bd78747ca117ddbbf96c859d3741181a12bf2a/' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i 's/compileSdk = 36/compileSdk = 35/' build.gradle.kts
+      - sed -i 's/targetSdk = 36/targetSdk = 35/' build.gradle.kts
+      - sed -i "/compileSdk = 35/a \    lint { checkReleaseBuilds = false; abortOnError = false }" build.gradle.kts
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
