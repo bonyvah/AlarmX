@@ -1,7 +1,7 @@
 Categories:
   - System
   - Time
-License: Unknown
+License: MIT
 SourceCode: https://github.com/bonyvah/AlarmX
 IssueTracker: https://github.com/bonyvah/AlarmX/issues
 Changelog: https://github.com/bonyvah/AlarmX/releases
@@ -22,7 +22,7 @@ Repo: https://github.com/bonyvah/AlarmX
 Builds:
   - versionName: '1.0'
     versionCode: 1
-    commit: b554920a5a7e612be2a229361c8335ce59afd28a
+    commit: 0446d002bb6b68455c0edcb6b1e33b69600da150
     subdir: app
     gradle:
       - yes
