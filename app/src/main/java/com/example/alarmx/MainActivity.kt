@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var preferencesRepository: PreferencesRepository
 
-    private var initialAlarmId by mutableStateOf<Long?>(null)
+    private var alarmTrigger by mutableStateOf<AlarmTrigger?>(null)
 
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -44,7 +44,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         configureLockScreen()
         enableEdgeToEdge()
-        initialAlarmId = readAlarmIdFromIntent(intent)
+        
+        readAlarmIdFromIntent(intent)?.let { id ->
+            alarmTrigger = AlarmTrigger(id)
+        }
 
         setContent {
             val prefs by preferencesRepository.preferences
@@ -56,7 +59,7 @@ class MainActivity : ComponentActivity() {
                 ThemeMode.SYSTEM -> systemDark
             }
             AlarmXTheme(darkTheme = darkTheme) {
-                AlarmXNavGraph(initialAlarmId = initialAlarmId)
+                AlarmXNavGraph(alarmTrigger = alarmTrigger)
             }
         }
 
@@ -67,7 +70,9 @@ class MainActivity : ComponentActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        readAlarmIdFromIntent(intent)?.let { initialAlarmId = it }
+        readAlarmIdFromIntent(intent)?.let { id ->
+            alarmTrigger = AlarmTrigger(id)
+        }
     }
 
     private fun configureLockScreen() {
@@ -114,3 +119,5 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+data class AlarmTrigger(val id: Long, val time: Long = System.currentTimeMillis())

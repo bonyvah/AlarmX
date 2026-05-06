@@ -32,14 +32,14 @@ object AlarmXRoutes {
 @Composable
 fun AlarmXNavGraph(
     modifier: Modifier = Modifier,
-    initialAlarmId: Long? = null,
+    alarmTrigger: AlarmTrigger? = null,
     navController: NavHostController = rememberNavController(),
 ) {
     val alarmViewModel: AlarmViewModel = hiltViewModel()
 
-    LaunchedEffect(initialAlarmId) {
-        if (initialAlarmId != null) {
-            navController.navigate(AlarmXRoutes.dismiss(initialAlarmId))
+    LaunchedEffect(alarmTrigger) {
+        alarmTrigger?.let {
+            navController.navigate(AlarmXRoutes.dismiss(it.id))
         }
     }
 
